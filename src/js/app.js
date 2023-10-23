@@ -1,7 +1,6 @@
 class CountDown
 {
   /**
-   *
    * @param {*} newYearDate Date with the upcoming year.
    * @param {*} onRender Re-render the html content showing the countdown.
    * @param {*} onComplete
@@ -151,8 +150,7 @@ const countdownTimer = new CountDown(
   render,
   () =>
   {
-    // restart the countdown after showing the
-  // greeting message for a day ()
+    // restart the countdown
     setTimeout(() =>
     {
       hideMessage();

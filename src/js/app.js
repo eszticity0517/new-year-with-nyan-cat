@@ -86,7 +86,7 @@ function getNewYear()
 }
 
 const year = document.querySelector('.year');
-year.innerHTML = `Keep watching Nyan cat until ${getNewYear().getFullYear()} :D`;
+year.innerHTML = `Keep watching Nyan cat until ${getNewYear().getFullYear()}😀`;
 
 // select elements
 const app = document.querySelector('.countdown-timer');

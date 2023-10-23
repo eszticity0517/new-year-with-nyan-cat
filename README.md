@@ -2,6 +2,8 @@
 
 JavaScript project created with [create-project-js](https://create-project.js.org/).
 
+The edy font family being used is ["Jura"](https://fonts.google.com/specimen/Jura).
+
 ## dev guidelines
 
 use [VSCode IDE](https://code.visualstudio.com/)

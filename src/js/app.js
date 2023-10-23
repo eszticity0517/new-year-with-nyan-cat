@@ -1,20 +1,30 @@
 class CountDown
 {
-  constructor(expiredDate, onRender, onComplete)
+  /**
+   *
+   * @param {*} newYearDate Date with the upcoming year.
+   * @param {*} onRender Re-render the html content showing the countdown.
+   * @param {*} onComplete
+   */
+  constructor(newYearDate, onRender, onComplete)
   {
-    this.setExpiredDate(expiredDate);
+    this.setDateOfExpiry(newYearDate);
 
     this.onRender = onRender;
     this.onComplete = onComplete;
   }
 
-  setExpiredDate(expiredDate)
+  /**
+   * Decides status of countdown: let's start, let's stop, etc.
+   * @param {*} newYearDate Date of new year.
+   */
+  setDateOfExpiry(newYearDate)
   {
     // get the current time
     const currentTime = new Date().getTime();
 
     // calculate the remaining time
-    this.timeRemaining = expiredDate.getTime() - currentTime;
+    this.timeRemaining = newYearDate.getTime() - currentTime;
 
     if (this.timeRemaining <= 0)
     {
@@ -26,6 +36,9 @@ class CountDown
     }
   }
 
+  /**
+   * Finishes the countdown.
+   */
   complete()
   {
     if (typeof this.onComplete === 'function')
@@ -33,6 +46,10 @@ class CountDown
       this.onComplete();
     }
   }
+  /**
+   * Returns an object to be displayed as remaining time.
+   * @returns Remaining time.
+   */
   getTime()
   {
     return {
@@ -89,15 +106,19 @@ const year = document.querySelector('.year');
 year.innerHTML = `Keep watching Nyan cat until ${getNewYear().getFullYear()}😀`;
 
 // select elements
-const app = document.querySelector('.countdown-timer');
+const countDownTimeData = document.querySelector('.countdown-timer');
 const message = document.querySelector('.message');
 const heading = document.querySelector('h1');
 
 const format = (t) => t < 10 ? '0' + t : t;
 
+/**
+ * Renders inner content into the countdown-timer div.
+ * @param {*} time The remaining time to display.
+ */
 const render = (time) =>
 {
-  app.innerHTML = `
+  countDownTimeData.innerHTML = `
         <div class="count-down">
             <div class="timer">
                 <h2 class="days">${format(time.days)}</h2>
